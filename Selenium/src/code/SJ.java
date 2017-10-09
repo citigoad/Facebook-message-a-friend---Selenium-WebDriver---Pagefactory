@@ -9,7 +9,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class SJ {
+public class SJ extends HelperImpl{
 WebDriver driver;
 	public SJ(WebDriver driver) {
 		this.driver = driver;
@@ -25,12 +25,13 @@ WebDriver driver;
 	
 	
 	
-	public void clickMessage ()throws InterruptedException {
-		Thread.sleep(3000);
+	public void clickMessage (){
+		waitForElement(driver, 60, message);
 		message.click();
 	}
 	
 	public void enterMessage(String info){
+		waitForElement(driver, 60, text);
 		text.sendKeys(info);
 		//text.sendKeys(Keys.ENTER);
 	}

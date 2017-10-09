@@ -2,6 +2,7 @@ package code;
 
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,11 +13,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 
-public class HomePage extends DriverSetup{
+public class HomePage extends HelperImpl{
 
 WebDriver driver;
-
-
 
 public HomePage(WebDriver driver){
 	this.driver = driver;
@@ -27,6 +26,7 @@ public HomePage(WebDriver driver){
 public static WebElement search;
 
 public void typeInSearchField(String name){
+	waitForElement(driver, 60, search);
 	search.sendKeys(name);
 	search.sendKeys(Keys.ENTER);
 }

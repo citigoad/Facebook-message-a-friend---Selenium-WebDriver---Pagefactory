@@ -8,7 +8,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class SearchPage {
+public class SearchPage extends HelperImpl{
 
 	WebDriver driver;
 	
@@ -21,6 +21,7 @@ public class SearchPage {
 	public static WebElement name;
 	
 	public void clickName(){
+		waitForElement(driver, 60, name);
 		name.click();
 	}
 
